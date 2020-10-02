@@ -108,6 +108,7 @@ public class SpringRemoteCacheManager implements org.springframework.cache.Cache
     * <code>SpringRemoteCacheManager</code>.
     */
    public void stop() {
+      this.nativeCacheManager.getChannelFactory().destroy()
       this.nativeCacheManager.stop();
       this.springCaches.clear();
    }
